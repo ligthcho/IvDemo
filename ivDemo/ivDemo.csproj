@@ -20,4 +20,14 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\css\font\iconfont\iconfont.css" />
+    <None Include="wwwroot\css\font\iconfont\iconfont.eot" />
+    <None Include="wwwroot\css\font\iconfont\iconfont.js" />
+    <None Include="wwwroot\css\font\iconfont\iconfont.svg" />
+    <None Include="wwwroot\css\font\iconfont\iconfont.ttf" />
+    <None Include="wwwroot\css\font\iconfont\iconfont.woff" />
+    <None Include="wwwroot\css\font\iconfont\iconfont.woff2" />
+  </ItemGroup>
+
 </Project>
