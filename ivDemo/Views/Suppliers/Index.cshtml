@@ -83,56 +83,64 @@
 	</table>*@
 <div class="row-fluid">
 
-			<div class="title">
-				<h4><i class="icon-reorder"></i>供应商列表</h4>
-				<span class="tools">
-					<a href="javascript:;" class="icon-chevron-down"></a>
-					<a href="javascript:;" class="icon-remove"></a>
-				</span>
+	<div class="title">
+		<h4><i class="icon-reorder"></i>供应商列表</h4>
+		<span class="tools">
+			<a href="javascript:;" class="icon-chevron-down"></a>
+			<a href="javascript:;" class="icon-remove"></a>
+		</span>
+	</div>
+	<div class="body">
+		<div class="container">
+			<div class="btn-group" style="margin-bottom:5px">
+				<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb9c;</span>刷新</button>
+				<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb8f;</span>新增</button>
+				<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb93;</span>修改</button>
+				<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb94;</span>删除</button>
 			</div>
-			<div class="body">
-				<div class="container">
-					<div class="btn-group" style="margin-bottom:5px">
-						<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb9c;</span>刷新</button>
-						<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb8f;</span>新增</button>
-						<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb93;</span>修改</button>
-						<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb94;</span>删除</button>
-					</div>
-					<table class="table table-striped table-bordered" id="sample_1">
-						<thead>
-							<tr>
-								<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
-								<th>@Html.DisplayNameFor(model => model.SupplierId)</th>
-								<th>@Html.DisplayNameFor(model => model.SupplierName)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierAbbr)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierClassify)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierCompetentProducts)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierBuyer)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierProvince)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierCity)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierAddress)</th>
-								<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierEnable)</th>
-							</tr>
-						</thead>
-						<tbody>
-							@foreach(Supplier item in Model)
-							{
-								<tr class="odd gradeX">
-									<td><input type="checkbox" class="checkboxes" value="1" /></td>
-									<td>@Html.DisplayFor(modelItem => item.SupplierId)</td>
-									<td>@Html.DisplayFor(modelItem => item.SupplierName)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierAbbr)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierClassify)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierCompetentProducts)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierBuyer)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierProvince)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierCity)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierAddress)</td>
-									<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierEnable)</td>
-								</tr>
+			<table class="table table-striped table-bordered" id="sample_1">
+				<thead>
+					<tr>
+						<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+						<th>@Html.DisplayNameFor(model => model.SupplierId)</th>
+						<th>@Html.DisplayNameFor(model => model.SupplierName)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierAbbr)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierClassify)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierCompetentProducts)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierBuyer)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierProvince)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierCity)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierAddress)</th>
+						<th class="hidden-phone">@Html.DisplayNameFor(model => model.SupplierEnable)</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach(Supplier item in Model)
+					{
+						<tr class="odd gradeX">
+							<td><input type="checkbox" class="checkboxes" value="1" /></td>
+							<td>@Html.DisplayFor(modelItem => item.SupplierId)</td>
+							<td>@Html.DisplayFor(modelItem => item.SupplierName)</td>
+							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierAbbr)</td>
+							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierClassify)</td>
+							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierCompetentProducts)</td>
+							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierBuyer)</td>
+							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierProvince)</td>
+							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierCity)</td>
+							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierAddress)</td>
+							@{if(item.SupplierEnable == "1")
+								{
+									<td class="hidden-phone">启用</td>
+								}
+								else
+								{
+									<td class="hidden-phone">禁用</td>
+								}
 							}
-						</tbody>
-					</table>
-				</div>
-			</div>
+						</tr>
+					}
+				</tbody>
+			</table>
 		</div>
+	</div>
+</div>
