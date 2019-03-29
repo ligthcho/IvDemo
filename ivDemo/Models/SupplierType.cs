@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace ivDemo.Models
 	/// </summary>
     public class SupplierType
     {
+		[Key]
 		/// <summary>
 		/// 类型编号
 		/// </summary>

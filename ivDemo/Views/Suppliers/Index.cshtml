@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ivDemo.Models.Supplier>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierAbbr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierClassify)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CompetentProducts)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierBuyer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierProvince)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SupplierEnable)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierAbbr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierClassify)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompetentProducts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierBuyer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierProvince)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierEnable)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SupplierId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SupplierId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SupplierId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
