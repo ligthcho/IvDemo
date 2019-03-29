@@ -21,22 +21,22 @@ namespace ivDemo.Data
 			}
 			var Suppliers = new Supplier[]
 			{
-				new Supplier{SupplierId= new Guid("000345"),SupplierName="辅料商",SupplierAbbr="fls",SupplierClassify="辅料供应商",
-				 CompetentProducts="",SupplierBuyer="张生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="越秀区某街道",SupplierEnable= Convert.ToString(SupplierStatus.Normal)},
-				new Supplier{SupplierId=new Guid("001019"),SupplierName="浩宇面料商",SupplierAbbr="hyml",SupplierClassify="",
-				 CompetentProducts="",SupplierBuyer="李生",SupplierProvince="广东省",SupplierCity="厦门",SupplierAddress="厦门某街道",SupplierEnable= Convert.ToString(SupplierStatus.Normal)},
-				new Supplier{SupplierId=new Guid("001021"),SupplierName="材料采购商",SupplierAbbr="",SupplierClassify="",
-				 CompetentProducts="",SupplierBuyer="黄生",SupplierProvince="广东省",SupplierCity="深圳",SupplierAddress="深圳某街道",SupplierEnable= Convert.ToString(SupplierStatus.Normal)},
-				new Supplier{SupplierId=new Guid("001034"),SupplierName="甲公司a",SupplierAbbr="",SupplierClassify="",
-				 CompetentProducts="",SupplierBuyer="郭生",SupplierProvince="湖南省",SupplierCity="香港",SupplierAddress="香港某街道",SupplierEnable= Convert.ToString(SupplierStatus.Disabled)},
-				new Supplier{SupplierId=new Guid("001049"),SupplierName="面料加工商",SupplierAbbr="mljgs",SupplierClassify="面料供应商",
-				 CompetentProducts="",SupplierBuyer="羊生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="番禺区某街道",SupplierEnable= Convert.ToString(SupplierStatus.Normal)},
-				new Supplier{SupplierId=new Guid("0022"),SupplierName="广州市哈料辅料有限公司",SupplierAbbr="",SupplierClassify="辅料供应商",
-				 CompetentProducts="",SupplierBuyer="张生",SupplierProvince="广东省",SupplierCity="潮汕",SupplierAddress="潮汕某街道",SupplierEnable= Convert.ToString(SupplierStatus.Disabled)},
-				new Supplier{SupplierId=new Guid("007001"),SupplierName="材料工艺加工",SupplierAbbr="clgyjg",SupplierClassify="材料供应商",
-				 CompetentProducts="",SupplierBuyer="王生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="白云区某街道",SupplierEnable= Convert.ToString(SupplierStatus.Disabled)},
-				new Supplier{SupplierId=new Guid("007002"),SupplierName="产品工艺加工商",SupplierAbbr="",SupplierClassify="产品供应商",
-				 CompetentProducts="",SupplierBuyer="吴生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="天河区某街道",SupplierEnable= Convert.ToString(SupplierStatus.Normal)}
+				new Supplier{SupplierId="000345",SupplierName="辅料商",SupplierAbbr="fls",SupplierClassify="辅料供应商",
+				 SupplierCompetentProducts="",SupplierBuyer="张生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="越秀区某街道",SupplierEnable=((int)SupplierStatus.Normal).ToString()},
+				new Supplier{SupplierId="001019",SupplierName="浩宇面料商",SupplierAbbr="hyml",SupplierClassify="",
+				 SupplierCompetentProducts="",SupplierBuyer="李生",SupplierProvince="广东省",SupplierCity="厦门",SupplierAddress="厦门某街道",SupplierEnable= ((int)SupplierStatus.Normal).ToString()},
+				new Supplier{SupplierId="001021",SupplierName="材料采购商",SupplierAbbr="",SupplierClassify="",
+				 SupplierCompetentProducts="",SupplierBuyer="黄生",SupplierProvince="广东省",SupplierCity="深圳",SupplierAddress="深圳某街道",SupplierEnable= ((int)SupplierStatus.Normal).ToString()},
+				new Supplier{SupplierId="001034",SupplierName="甲公司a",SupplierAbbr="",SupplierClassify="",
+				 SupplierCompetentProducts="",SupplierBuyer="郭生",SupplierProvince="湖南省",SupplierCity="香港",SupplierAddress="香港某街道",SupplierEnable= ((int)SupplierStatus.Disabled).ToString()},
+				new Supplier{SupplierId="001049",SupplierName="面料加工商",SupplierAbbr="mljgs",SupplierClassify="面料供应商",
+				 SupplierCompetentProducts="",SupplierBuyer="羊生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="番禺区某街道",SupplierEnable= ((int)SupplierStatus.Normal).ToString()},
+				new Supplier{SupplierId="0022",SupplierName="广州市哈料辅料有限公司",SupplierAbbr="",SupplierClassify="辅料供应商",
+				 SupplierCompetentProducts="",SupplierBuyer="张生",SupplierProvince="广东省",SupplierCity="潮汕",SupplierAddress="潮汕某街道",SupplierEnable= ((int)SupplierStatus.Disabled).ToString()},
+				new Supplier{SupplierId="007001",SupplierName="材料工艺加工",SupplierAbbr="clgyjg",SupplierClassify="材料供应商",
+				 SupplierCompetentProducts="",SupplierBuyer="王生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="白云区某街道",SupplierEnable= ((int)SupplierStatus.Disabled).ToString()},
+				new Supplier{SupplierId="007002",SupplierName="产品工艺加工商",SupplierAbbr="",SupplierClassify="产品供应商",
+				 SupplierCompetentProducts="",SupplierBuyer="吴生",SupplierProvince="广东省",SupplierCity="广州",SupplierAddress="天河区某街道",SupplierEnable= ((int)SupplierStatus.Normal).ToString()}
 			};
 			foreach(Supplier suppliers in Suppliers)
 			{

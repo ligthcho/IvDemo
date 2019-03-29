@@ -22,11 +22,11 @@ namespace ivDemo.Controllers
         // GET: Suppliers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Supplier.ToListAsync());
+			return View(await _context.Supplier.ToListAsync());
         }
 
         // GET: Suppliers/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
@@ -54,11 +54,10 @@ namespace ivDemo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SupplierId,SupplierName,SupplierAbbr,SupplierClassify,CompetentProducts,SupplierBuyer,SupplierProvince,SupplierCity,SupplierAddress,SupplierEnable")] Supplier supplier)
+        public async Task<IActionResult> Create([Bind("SupplierId,SupplierName,SupplierAbbr,SupplierClassify,SupplierCompetentProducts,SupplierBuyer,SupplierProvince,SupplierCity,SupplierAddress,SupplierEnable")] Supplier supplier)
         {
             if (ModelState.IsValid)
             {
-                supplier.SupplierId = Guid.NewGuid();
                 _context.Add(supplier);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -67,7 +66,7 @@ namespace ivDemo.Controllers
         }
 
         // GET: Suppliers/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
             {
@@ -87,7 +86,7 @@ namespace ivDemo.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("SupplierId,SupplierName,SupplierAbbr,SupplierClassify,CompetentProducts,SupplierBuyer,SupplierProvince,SupplierCity,SupplierAddress,SupplierEnable")] Supplier supplier)
+        public async Task<IActionResult> Edit(string id, [Bind("SupplierId,SupplierName,SupplierAbbr,SupplierClassify,SupplierCompetentProducts,SupplierBuyer,SupplierProvince,SupplierCity,SupplierAddress,SupplierEnable")] Supplier supplier)
         {
             if (id != supplier.SupplierId)
             {
@@ -118,7 +117,7 @@ namespace ivDemo.Controllers
         }
 
         // GET: Suppliers/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -138,7 +137,7 @@ namespace ivDemo.Controllers
         // POST: Suppliers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var supplier = await _context.Supplier.SingleOrDefaultAsync(m => m.SupplierId == id);
             _context.Supplier.Remove(supplier);
@@ -146,7 +145,7 @@ namespace ivDemo.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool SupplierExists(Guid id)
+        private bool SupplierExists(string id)
         {
             return _context.Supplier.Any(e => e.SupplierId == id);
         }
