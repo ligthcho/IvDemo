@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ivDemo.Data;
 using ivDemo.Models;
+using X.PagedList;
 
 namespace ivDemo.Controllers
 {
@@ -20,9 +21,21 @@ namespace ivDemo.Controllers
         }
 
         // GET: Suppliers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string currentSort,int? page)
         {
-			return View(await _context.Supplier.ToListAsync());
+			int pageIndex = 1;
+			int pageSize = 5;
+			//判断page是否有值，有的话就给值，没有就赋值1
+			pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+
+
+			IPagedList<Supplier> lstStudent = null;
+
+			lstStudent = await _context.Set<Supplier>().
+			OrderByDescending(s => s.SupplierName).
+			ToPagedListAsync(pageIndex,pageSize);
+
+			return View(lstStudent);
         }
 
         // GET: Suppliers/Details/5
@@ -68,7 +81,7 @@ namespace ivDemo.Controllers
         // GET: Suppliers/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
-            if (id == null)
+			if (id == null)
             {
                 return NotFound();
             }
@@ -78,7 +91,14 @@ namespace ivDemo.Controllers
             {
                 return NotFound();
             }
-            return View(supplier);
+			var supplierTypeList = _context.SupplierType.ToList();
+			var selectItemList = new List<SelectListItem>() {
+				new SelectListItem(){Value="0",Text="",Selected=true}
+			};
+			var selectList = new SelectList(supplierTypeList,"TypeCode","TypeName");
+			selectItemList.AddRange(selectList);
+			ViewBag.database = selectItemList;
+			return View(supplier);
         }
 
         // POST: Suppliers/Edit/5
@@ -95,23 +115,26 @@ namespace ivDemo.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(supplier);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SupplierExists(supplier.SupplierId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+				try
+				{
+					_context.Update(supplier);
+					if(await _context.SaveChangesAsync() > 0)
+					{
+						ViewData["SumbitMessge"] = "保存成功！";
+					};
+				}
+				catch(DbUpdateConcurrencyException)
+				{
+					if(!SupplierExists(supplier.SupplierId))
+					{
+						return NotFound();
+					}
+					else
+					{
+						throw;
+					}
+				}
+               // return RedirectToAction(nameof(Index));
             }
             return View(supplier);
         }
@@ -137,9 +160,9 @@ namespace ivDemo.Controllers
         // POST: Suppliers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(string SupplierId)
         {
-            var supplier = await _context.Supplier.SingleOrDefaultAsync(m => m.SupplierId == id);
+            var supplier = await _context.Supplier.SingleOrDefaultAsync(m => m.SupplierId == SupplierId);
             _context.Supplier.Remove(supplier);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
