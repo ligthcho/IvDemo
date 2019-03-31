@@ -1,5 +1,5 @@
 ﻿@using X.PagedList.Mvc.Core;
-@model X.PagedList.IPagedList<ivDemo.Models.Supplier>
+@model X.PagedList.IPagedList<Demo.Models.Supplier>
 @{
 	ViewData["Title"] = "Index";
 }
@@ -13,6 +13,7 @@
 			<a href="javascript:;" class="icon-remove"></a>
 		</span>
 	</div>
+	<div class="body">
 		<div class="container">
 			<div class="btn-group" style="margin-bottom:5px">
 				<button type="button" class="btn  btn-primary"><span class="iconfont">&#xeb9c;</span>刷新</button>
@@ -22,7 +23,7 @@
 				<thead>
 					<tr>
 						<th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
-						<th>@Html.DisplayNameFor(model => model.First().SupplierId)</th>
+						<th>@Html.DisplayNameFor(model => model.First().SupplierID)</th>
 						<th>@Html.DisplayNameFor(model => model.First().SupplierName)</th>
 						<th class="hidden-phone">@Html.DisplayNameFor(model => model.First().SupplierAbbr)</th>
 						<th class="hidden-phone">@Html.DisplayNameFor(model => model.First().SupplierClassify)</th>
@@ -40,7 +41,7 @@
 					{
 						<tr class="odd gradeX">
 							<td><input type="checkbox" class="checkboxes" value="1" /></td>
-							<td>@Html.DisplayFor(modelItem => item.SupplierId)</td>
+							<td>@Html.DisplayFor(modelItem => item.SupplierID)</td>
 							<td>@Html.DisplayFor(modelItem => item.SupplierName)</td>
 							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierAbbr)</td>
 							<td class="hidden-phone">@Html.DisplayFor(modelItem => item.SupplierClassify)</td>
@@ -59,9 +60,9 @@
 								}
 							}
 							<td class="hidden-phone">
-								<a asp-action="Edit" asp-route-id="@item.SupplierId"><span class="iconfont">&#xeb93;</span>修改</a>
+								<a asp-action="Edit" asp-route-id="@item.SupplierID"><span class="iconfont">&#xeb93;</span>修改</a>
 								<form asp-action="Delete" class="btn btn-link">
-									<input type="hidden" name="SupplierId" value=@item.SupplierId />
+									<input type="hidden" name="SupplierID" value=@item.SupplierID />
 									<span class="iconfont">&#xeb94;</span>
 									<input type="submit" onclick="return confirm('确认删除？')" value="删除" class="btn-link btn-flx">
 								</form>
@@ -75,4 +76,5 @@
 				@Html.PagedListPager(Model,page => Url.Action("Index",new { page }))
 			</div>
 		</div>
+	</div>
 </div>

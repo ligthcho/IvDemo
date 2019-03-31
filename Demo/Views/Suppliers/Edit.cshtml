@@ -1,0 +1,75 @@
+﻿@model Demo.Models.Supplier
+
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<h2>修改</h2>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="SupplierID" />
+			<div class="form-group">
+				<label asp-for="SupplierName" class="control-label"></label>
+				<input asp-for="SupplierName" class="form-control" />
+				<span asp-validation-for="SupplierName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SupplierAbbr" class="control-label"></label>
+				<input asp-for="SupplierAbbr" class="form-control" />
+				<span asp-validation-for="SupplierAbbr" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SupplierType" class="control-label"></label>
+				<select id="SupplierType" name="SupplierType" class = "form-control">
+					@foreach(SupplierType supplierType in (IList<SupplierType>)ViewBag.database)
+					{
+						if(supplierType.TypeCode == Model.SupplierType.TypeCode)
+						{
+				         	<option selected="selected" value="@supplierType.TypeCode">@supplierType.TypeName </option>
+						}
+						else
+						{
+							<option value="@supplierType.TypeCode">@supplierType.TypeName</option>
+						}
+					}
+				</select>
+				<span asp-validation-for="SupplierType" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SupplierProvince" class="control-label"></label>
+				<input asp-for="SupplierProvince" class="form-control" />
+				<span asp-validation-for="SupplierProvince" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SupplierCity" class="control-label"></label>
+				<input asp-for="SupplierCity" class="form-control" />
+				<span asp-validation-for="SupplierCity" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SupplierAddress" class="control-label"></label>
+				<input asp-for="SupplierAddress" class="form-control" />
+				<span asp-validation-for="SupplierAddress" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SupplierEnable" class="control-label"></label>
+				<input asp-for="SupplierEnable" type="radio" name="SupplierEnable" value="0">否
+				<input asp-for="SupplierEnable" type="radio" name="SupplierEnable" value="1">是
+				<span asp-validation-for="SupplierEnable" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="保存" class="btn btn-default" />&nbsp;@ViewData["SumbitMessge"]
+			</div>
+		</form>
+	</div>
+</div>
+
+<div>
+	<a asp-action="Index">返回列表</a>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
