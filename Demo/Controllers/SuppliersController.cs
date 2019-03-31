@@ -34,10 +34,16 @@ namespace Demo.Controllers
 
 			return View(lstStudent);
 		}
-
-		public PartialViewResult sv()
+		[HttpPost]
+		public PartialViewResult Indexx(string currentSort,int? page)
 		{
-			return PartialView("SupplierPartialView");//返回部分视图,就是要展示在主视图上的数据内容板块
+			int pageIndex = 1;
+			int pageSize = 5;
+			//判断page是否有值，有的话就给值，没有就赋值1
+			pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+			IPagedList<Supplier> lstStudent = null;
+			lstStudent =  _context.Set<Supplier>().Include("SupplierType").OrderByDescending(s => s.SupplierName).ToPagedList(pageIndex,pageSize);
+			return PartialView("SupplierPartialView",lstStudent);//返回部分视图,就是要展示在主视图上的数据内容板块
 		}
 
 		// GET: Suppliers/Create
