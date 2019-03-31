@@ -31,10 +31,10 @@ namespace Demo.Data
 				entity.HasKey(e => e.TypeCode);
 				entity.HasMany(c => c.Supplier).WithOne(a => a.SupplierType);//定义一对多的关系
 			});
-			modelBuilder.Entity<Supplier>(entity =>
-			{
-				entity.HasKey(e => e.SupplierID);
-			});
+			//modelBuilder.Entity<Supplier>(entity =>
+			//{
+			//	entity.HasKey(e => e.);
+			//});
 		}
 	}
 }

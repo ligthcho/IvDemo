@@ -10,7 +10,12 @@
 	<div class="col-md-4">
 		<form asp-action="Edit">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<input type="hidden" asp-for="SupplierID" />
+			<input type="hidden" asp-for="ID" />
+			<div class="form-group">
+				<label asp-for="SupplierID" class="control-label"></label>
+				<input asp-for="SupplierID" class="form-control" />
+				<span asp-validation-for="SupplierID" class="text-danger"></span>
+			</div>
 			<div class="form-group">
 				<label asp-for="SupplierName" class="control-label"></label>
 				<input asp-for="SupplierName" class="form-control" />
@@ -23,14 +28,25 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="SupplierType" class="control-label"></label>
-				<select id="SupplierType" name="SupplierType" class = "form-control">
-					@foreach(SupplierType supplierType in (IList<SupplierType>)ViewBag.database)
+				<select id="SupplierType" name="SupplierType" class="form-control">
+					<option value="" selected="selected"></option>
+					@if(Model.SupplierType != null)
 					{
-						if(supplierType.TypeCode == Model.SupplierType.TypeCode)
+						foreach(SupplierType supplierType in (IList<SupplierType>)ViewBag.database)
 						{
-				         	<option selected="selected" value="@supplierType.TypeCode">@supplierType.TypeName </option>
+							if(supplierType.TypeCode == Model.SupplierType.TypeCode)
+							{
+								<option selected="selected" value="@supplierType.TypeCode">@supplierType.TypeName </option>
+							}
+							else
+							{
+								<option value="@supplierType.TypeCode">@supplierType.TypeName</option>
+							}
 						}
-						else
+					}
+					else
+					{
+						foreach(SupplierType supplierType in (IList<SupplierType>)ViewBag.database)
 						{
 							<option value="@supplierType.TypeCode">@supplierType.TypeName</option>
 						}
@@ -52,6 +68,11 @@
 				<label asp-for="SupplierAddress" class="control-label"></label>
 				<input asp-for="SupplierAddress" class="form-control" />
 				<span asp-validation-for="SupplierAddress" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="SupplierRemarks" class="control-label"></label>
+				<input asp-for="SupplierRemarks" class="form-control" />
+				<span asp-validation-for="SupplierRemarks" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="SupplierEnable" class="control-label"></label>
